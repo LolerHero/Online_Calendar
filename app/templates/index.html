@@ -1,7 +1,21 @@
-{% extends "base.html" %} {% block content %}
-<h1>Hi, {{ current_user.username }}!</h1>
-{% for post in posts %}
-<div>
-    <p>{{ event.author.username }} has: <b>{{ event.body }}</b> on <b>{{ event.timestamp }}</b></p>
-</div>
-{% endfor %} {% endblock %}
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% if form %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.event.label }}<br>
+            {{ form.event(cols=32, rows=4) }}<br>
+            {% for error in form.event.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+    {% for event in events %}
+        {% include '_post.html' %}
+    {% endfor %}
+{% endblock %}

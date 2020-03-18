@@ -1,6 +1,11 @@
 <table>
     <tr valign="top">
         <td><img src="{{ event.author.avatar(36) }}"></td>
-        <td>{{ event.author.username }} has:<br>{{ event.body }} on date: {{ event.day }}.{{ event.month }}.{{ event.year }}</td>
+        <td>
+        <a href="{{ url_for('user', username=event.author.username) }}">
+                    {{ event.author.username }}
+                </a>
+                has:<br>{{ event.body }} on {{ event.day }}.{{ event.month }}.{{ event.year }}
+        </td>
     </tr>
 </table>

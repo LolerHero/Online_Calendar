@@ -3,8 +3,8 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from datetime import datetime
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, EventForm
+from app.models import User, Event
 
 @app.before_request
 def before_request():
@@ -16,17 +16,15 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
-    events = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html', title='Home', events=events)
+    form = PostForm()
+    if form.validate_on_submit():
+        event = Event(body=form.event.data, author=current_user)
+        db.session.add(event)
+        db.session.commit()
+        flash('Your event is now live!')
+        return redirect(url_for('index'))
+    events = current_user.followed_events().all()
+    return render_template('index.html', title='Home', form=form, events=events)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -122,3 +120,9 @@ def unfollow(username):
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('user', username=username))
+
+@app.route('/explore')
+@login_required
+def explore():
+    events = Event.query.order_by(Event.timestamp.desc()).all()
+    return render_template('index.html', title='Explore', events=events)
