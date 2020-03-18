@@ -43,7 +43,7 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username.')
 
 class EventForm(FlaskForm):
-    text = TextAreaField('What is your Event?', validators=[
+    event = TextAreaField('What is your Event?', validators=[
         DataRequired(), Length(min=1, max=140)])
     date = DateTimeField('Enter a date', validators=[DataRequired()], format='%d.%m.%Y')
     submit = SubmitField('Submit')
