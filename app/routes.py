@@ -70,8 +70,8 @@ def register():
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     events = [
-        {'author': user, 'body': 'Test Event 1', 'day': 21, 'month':2, 'year': 2020},
-        {'author': user, 'body': 'Test Event 2', 'day': 21, 'month':2, 'year': 2021}
+        {'author': user, 'body': 'Test Event 1', 'date': 2020, 3, 18, 14, 16, 29, 510745},
+        {'author': user, 'body': 'Test Event 2', 'date': 2020, 3, 18, 14, 16, 29, 510745}
     ]
     return render_template('user.html', user=user, events=events)
 
