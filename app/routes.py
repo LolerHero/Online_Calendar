@@ -24,7 +24,7 @@ def index():
         flash('Your event is now live!')
         return redirect(url_for('index'))
     page = request.args.get('page', 1, type=int)
-    events = current_user.followed_events().pageinate(
+    events = current_user.followed_events().paginate(
         page, app.config['POSTS_PER_PAGE'], False)
     next_url = url_for('index', page=posts.next_num) \
         if posts.has_next else None
