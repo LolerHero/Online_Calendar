@@ -136,7 +136,7 @@ def unfollow(username):
 @login_required
 def explore():
     page = request.args.get('page', 1, type=int)
-    events = Event.query.order_by(Event.timestamp.desc()).pageinate(
+    events = Event.query.order_by(Event.timestamp.desc()).paginate(
         page, app.config['EVENTS_PER_PAGE'], False)
     next_url = url_for('explore', page=events.next_num) \
         if events.has_next else None
