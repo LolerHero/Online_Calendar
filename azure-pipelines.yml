@@ -1,20 +1,20 @@
-stages:
- # build
- - test
- - deploy
+jobs:
+- job: 'Test'
+  pool:
+    vmImage: 'ubuntu-16.04' # other options: 'macOS-10.14', 'vs2017-win2016'
+  strategy:
+    matrix:
+      Python27:
+        python.version: '2.7'
+      Python35:
+        python.version: '3.5'
+      Python36:
+        python.version: '3.6'
 
-test:
-  image: python:3-alpine
-  stage: test
-  script:
-   - python -m unittest tests
-
-deploy:
-  image: python:3-alpine
-  stage: deploy
-  script:
-   - python microblog.py
-  after_script:
-   - echo "I do something after_script"
-  only:
-   - master
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+  - task: Run Unittests
+    inputs:
+      script: python /src/tests.py
