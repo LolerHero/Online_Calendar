@@ -26,10 +26,10 @@ def index():
     page = request.args.get('page', 1, type=int)
     events = current_user.followed_events().paginate(
         page, app.config['POSTS_PER_PAGE'], False)
-    next_url = url_for('index', page=posts.next_num) \
-        if posts.has_next else None
-    prev_url = url_for('index', page=posts.prev_num) \
-        if posts.has_prev else None
+    next_url = url_for('index', page=events.next_num) \
+        if events.has_next else None
+    prev_url = url_for('index', page=events.prev_num) \
+        if events.has_prev else None
     return render_template('index.html', title='Home', form=form,
                           events=events.items, next_url=next_url,
                            prev_url=prev_url)
