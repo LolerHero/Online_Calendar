@@ -18,7 +18,7 @@ def before_request():
 def index():
     form = EventForm()
     if form.validate_on_submit():
-        event = Event(body=form.event.data, date=form.date.data.strftime("%d.%m.%Y"), author=current_user)
+        event = Event(body=form.event.data, date=form.date.data, author=current_user)
         db.session.add(event)
         db.session.commit()
         flash('Your event is now live!')
