@@ -16,7 +16,7 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
-    event = EventForm()
+    form = EventForm()
     if form.validate_on_submit():
         event = Event(body=form.event.data, author=current_user)
         db.session.add(event)
