@@ -14,7 +14,5 @@ jobs:
   steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '$(python.version)'
-  - task: RunUnittests@0
-    inputs:
-      script: python /src/tests.py
+      versionSpec: '3.6'
+  - script: python /src/tests.py
