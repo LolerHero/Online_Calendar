@@ -59,9 +59,7 @@ class User(UserMixin, db.Model):
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
-    day = db.Column(db.Integer, index=True)
-    month = db.Column(db.Integer, index=True)
-    year = db.Column(db.Integer, index=True)
+    date = db.Column(db.DateTime, index=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -71,3 +69,4 @@ class Event(db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
