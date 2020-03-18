@@ -5,7 +5,7 @@
         <a href="{{ url_for('user', username=event.author.username) }}">
                     {{ event.author.username }}
                 </a>
-                has:<br>{{ event.body }} on {{ event.day }}.{{ event.month }}.{{ event.year }}
+                has:<br>{{ event.body }} on {{ event.date }}
         </td>
     </tr>
 </table>
