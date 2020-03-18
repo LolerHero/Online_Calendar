@@ -12,6 +12,13 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+	    {{ form.date.label }}<br>
+            {{ form.date }}<br>
+	    {% for error in form.event.errors %}
+	    <span style="color: red;">[{{ error }}]</span>
+	    {% endfor %}
+	</p>
         <p>{{ form.submit() }}</p>
     </form>
     {% endif %}
