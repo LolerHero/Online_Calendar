@@ -23,9 +23,16 @@ def index():
         db.session.commit()
         flash('Your event is now live!')
         return redirect(url_for('index'))
-    events = current_user.followed_events().all()
-    return render_template('index.html', title='Home', form=form, events=events)
-
+    page = request.args.get('page', 1, type=int)
+    events = current_user.followed_events().pageinate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('index', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('index', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template('index.html', title='Home', form=form,
+                          events=events.items, next_url=next_url,
+                           prev_url=prev_url)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -71,7 +78,7 @@ def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     page = request.args.get('page', 1, type=int)
     events = user.events.order_by(Event.timestamp.desc()).paginate(
-        page, app.config['POSTS_PER_PAGE'], False)
+        page, app.config['EVENTS_PER_PAGE'], False)
     next_url = url_for('user', username=user.username, page=events.next_num) \
         if events.has_next else None
     prev_url = url_for('user', username=user.username, page=events.prev_num) \
@@ -128,5 +135,12 @@ def unfollow(username):
 @app.route('/explore')
 @login_required
 def explore():
-    events = Event.query.order_by(Event.timestamp.desc()).all()
-    return render_template('index.html', title='Explore', events=events)
+    page = request.args.get('page', 1, type=int)
+    events = Event.query.order_by(Event.timestamp.desc()).pageinate(
+        page, app.config['EVENTS_PER_PAGE'], False)
+    next_url = url_for('explore', page=events.next_num) \
+        if events.has_next else None
+    prev_url = url_for('explore', page=events.prev_num) \
+        if events.has_prev else None
+    return render_template("index.html", title='Explore', events=events.items,
+                          next_url=next_url, prev_url=prev_url)
