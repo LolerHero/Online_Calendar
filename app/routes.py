@@ -25,7 +25,7 @@ def index():
         return redirect(url_for('index'))
     page = request.args.get('page', 1, type=int)
     events = current_user.followed_events().paginate(
-        page, app.config['POSTS_PER_PAGE'], False)
+        page, app.config['EVENTS_PER_PAGE'], False)
     next_url = url_for('index', page=events.next_num) \
         if events.has_next else None
     prev_url = url_for('index', page=events.prev_num) \
