@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.fields.html5 import DateField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, DateTimeField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 
@@ -46,5 +45,5 @@ class EditProfileForm(FlaskForm):
 class EventForm(FlaskForm):
     event = TextAreaField('What is your Event?', validators=[
         DataRequired(), Length(min=1, max=140)])
-    date = DateField('Date:', format='%d.%m.%Y')
+    date = DateTimeField('Date:', format='%d.%m.%Y')
     submit = SubmitField('Submit')
