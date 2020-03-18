@@ -45,5 +45,5 @@ class EditProfileForm(FlaskForm):
 class EventForm(FlaskForm):
     event = TextAreaField('What is your Event?', validators=[
         DataRequired(), Length(min=1, max=140)])
-    date = DateTimeField(validators=[DataRequired()], format='%d.%m.%Y')
+    date = DateTimeField(format='%d.%m.%Y')
     submit = SubmitField('Submit')
