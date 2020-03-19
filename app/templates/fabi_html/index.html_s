@@ -1,0 +1,176 @@
+<html>
+
+<head>
+    <title>Kalender</title>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css">-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/mediaqueries.css" type="text/css">
+</head>
+
+<body>
+    <h1>Kalender</h1>
+    <main>
+        <table id="kalender"><button id="letzterMonat" onclick="letzterMonat()">
+                <</button><button id="naechsterMonat" onclick="naechsterMonat()">></button> </table>
+
+    </main>
+    <script>
+        // dm und dj sind Monat und Jahr, die im Kalender dargestellt werden
+        // insbesondere könnte auch ein Monat gewählt werden, in dem das aktuelle Datum nicht vorkommt
+
+        var ChangeYear = 0;
+
+        var d = new Date();
+        var dm = d.getMonth() + 1;
+        var dj = d.getYear() + 1900;
+        Kalender(dm, dj);
+
+        function naechsterMonat() {
+
+            document.getElementById("naechsterMonat");
+            document.getElementById('kalender');
+            var table = document.getElementById('kalender');
+            table.innerHTML = '';
+
+            if (dm == 12) {
+                ChangeYear++;
+                dm = dm - 12;
+            }
+            dm++;
+            Kalender(dm, dj + ChangeYear);
+        }
+
+        function letzterMonat() {
+
+            document.getElementById("letzterMonat");
+            document.getElementById('kalender');
+            var table = document.getElementById('kalender');
+            table.innerHTML = '';
+
+            if (dm == d.getMonth() - dm) {
+                ChangeYear--;
+                dm = d.getMonth() + 11;
+            }
+            dm--;
+            Kalender(dm, dj + ChangeYear);
+        }
+
+        function Kalender(Monat, Jahr) {
+
+            Monatsname = new Array("Januar", "Februar", "März", "April", "Mai", "Juni",
+                "Juli", "August", "September", "Oktober", "November", "Dezember");
+            Tag = new Array("Mo", "Di", "Mi", "Do", "Fr", "Sa", "So");
+            // aktuelles Datum für die spätere Hervorhebung ermitteln
+            var jetzt = new Date();
+            var DieserMonat = jetzt.getMonth() + 1;
+            var DiesesJahr = jetzt.getFullYear();
+            var DieserTag = jetzt.getDate();
+            // ermittle Wochentag des ersten Tags im Monat halte diese Information in Start fest
+            var Zeit = new Date(Jahr, Monat - 1, 1);
+            var Start = Zeit.getDay();
+            if (Start > 0) {
+                Start--;
+            } else {
+                Start = 6;
+            }
+            // die meisten Monate haben 31 Tage...
+            var Stop = 31;
+            // ...April (4), Juni (6), September (9) und November (11) haben nur 30 Tage...
+            if (Monat == 4 || Monat == 6 || Monat == 9 || Monat == 11)--Stop;
+            // ...und der Februar nur 28 Tage...
+            if (Monat == 2) {
+                Stop = Stop - 3;
+                // ...außer in Schaltjahren
+                if (Jahr % 4 == 0) Stop++;
+                if (Jahr % 100 == 0) Stop--;
+                if (Jahr % 400 == 0) Stop++;
+
+            }
+
+            var tabelle = document.getElementById('kalender');
+            // schreibe Tabellenüberschrift
+            var Monatskopf = Monatsname[Monat - 1] + " " + Jahr;
+            var caption = tabelle.createCaption();
+            caption.innerHTML = Monatskopf;
+
+
+
+            // schreibe Tabellenkopf
+            var row = tabelle.insertRow(0);
+            for (var i = 0; i <= 6; i++) {
+                var cell = row.insertCell(i);
+                cell.innerHTML = Tag[i];
+            }
+
+            var Tageszahl = 1;
+            // ermittle Tag und schreibe Zeile
+
+            if (Start >= 6 && Stop>=30|| Start==5 && Stop===31) {
+
+                for (var i = 0; i <= 5; i++) {
+                    var row = tabelle.insertRow(1 + i);
+
+                    for (var j = 0; j <= 6; j++) {
+
+                        // Zellen vor dem Start-Tag in der ersten Zeile und Zeilen nach dem Stop-Tag werden leer aufgefüllt
+                        if (((i == 0) && (j <= 6) && (j < Start)) || (Tageszahl > Stop)) {
+
+                                leer();
+                            
+                        }
+                        else {
+                            fill();
+                        }
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i <= 4; i++) {
+                    var row = tabelle.insertRow(1 + i);
+
+                    for (var j = 0; j <= 6; j++) {
+
+                        // Zellen vor dem Start-Tag in der ersten Zeile und Zeilen nach dem Stop-Tag werden leer aufgefüllt
+                        if (((i == 0) && (j <= 6) && (j < Start)) || (Tageszahl > Stop)) {
+                         
+                            if (Monat == 2 && Start == 0) {
+                                row - 1;
+                            }
+                            else {
+                                leer();
+                            }
+                        }
+                        else {
+                            fill();
+                        }
+
+                    }
+                }
+            }
+            function fill(){
+                var cell = row.insertCell(j);
+                var link = '<a href = "index2.html">' + Tageszahl + '</a>';
+                cell.innerHTML = link;
+                cell.className = 'kalendertag'
+
+
+                // und der aktuelle Tag (heute) wird noch einmal speziell mit der Klasse "heute" markiert
+                if ((Jahr == DiesesJahr) && (Monat == DieserMonat) && (Tageszahl == DieserTag)) {
+                    cell.className = cell.className + ' heute';
+                }
+                Tageszahl++;
+            }
+            function leer(){
+            var cell = row.insertCell(j);
+                            cell.innerHTML = ' ';
+        }
+        
+        }
+        
+        
+
+    </script>
+
+</body>
+
+</html>
