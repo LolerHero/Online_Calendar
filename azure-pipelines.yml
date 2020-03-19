@@ -25,5 +25,4 @@ jobs:
     clean: false
     lfs: false
     submodules: recursive
-    path: \
     persistCredentials: true
