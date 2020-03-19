@@ -12,6 +12,12 @@ jobs:
         python.version: '3.6'
 
   steps:
+  - checkout: self
+    clean: false
+    lfs: false
+    submodules: recursive
+    persistCredentials: true
+    
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
@@ -21,8 +27,3 @@ jobs:
     displayName: 'Install requirements'  
   - script: python tests.py
     displayName: 'Run Unittests'
-  - checkout: self
-    clean: false
-    lfs: false
-    submodules: recursive
-    persistCredentials: true
