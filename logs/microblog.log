@@ -1,15 +1,4 @@
-2020-03-18 11:38:55,630 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 13:30:13,062 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:05:40,341 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:07:31,552 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:07:36,428 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:07:50,025 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:15:01,695 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:33:30,367 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:34:44,224 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:35:05,418 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:42]
-2020-03-18 15:55:10,121 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:42]
-2020-03-18 15:55:23,303 ERROR: Exception on /index [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
+2020-03-19 16:00:28,703 ERROR: Exception on /index [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,89 +14,39 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\JHN\Desktop\Online_Calendar\app\routes.py", line 27, in index
-    events = current_user.followed_events().pageinate(
-AttributeError: 'BaseQuery' object has no attribute 'pageinate'
-2020-03-18 15:58:08,209 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:42]
-2020-03-18 15:58:12,393 ERROR: Exception on /index [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+  File "C:\Users\JHN\Desktop\Online_Calendar\app\routes.py", line 39, in index
+    prev_url=prev_url)
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\JHN\Desktop\Online_Calendar\app\routes.py", line 30, in index
-    if posts.has_next else None
-NameError: name 'posts' is not defined
-2020-03-18 15:59:35,308 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:42]
-2020-03-18 16:00:04,797 ERROR: Exception on /user/pl0x [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\JHN\Desktop\Online_Calendar\app\routes.py", line 81, in user
-    page, app.config['EVENTS_PER_PAGE'], False)
-KeyError: 'EVENTS_PER_PAGE'
-2020-03-18 16:01:07,509 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:42]
-2020-03-18 16:01:12,880 ERROR: Exception on /index [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\JHN\Desktop\Online_Calendar\app\routes.py", line 28, in index
-    page, app.config['POSTS_PER_PAGE'], False)
-KeyError: 'POSTS_PER_PAGE'
-2020-03-18 16:02:54,511 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:42]
-2020-03-18 16:03:26,517 ERROR: Exception on /explore [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_login\utils.py", line 228, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\JHN\Desktop\Online_Calendar\app\routes.py", line 139, in explore
-    events = Event.query.order_by(Event.timestamp.desc()).pageinate(
-AttributeError: 'BaseQuery' object has no attribute 'pageinate'
-2020-03-18 16:07:40,662 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:42]
-2020-03-18 16:17:49,973 INFO: Microblog startup [in /home/lterm/Projects/Online_Calendar/app/__init__.py:44]
-2020-03-19 14:40:46,960 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:44]
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\JHN\Desktop\Online_Calendar\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\JHN\Desktop\Online_Calendar\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\JHN\Desktop\Online_Calendar\app\templates\base.html", line 48, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\JHN\Desktop\Online_Calendar\app\templates\index.html", line 11, in block "app_content"
+    {% include '_event.html' %}
+  File "C:\Users\JHN\Desktop\Online_Calendar\app\templates\_event.html", line 4, in top-level template code
+    <a href="{{ url_for('user', username=post.author.username) }}">
+  File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'post' is undefined
+2020-03-19 16:01:30,579 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:47]
