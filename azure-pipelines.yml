@@ -12,15 +12,6 @@ jobs:
         python.version: '3.6'
 
   steps:
-  - task: AzureRmWebAppDeployment@4
-    inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'Azure for Students(ddd4b0ec-1665-4cc8-adfd-29cb8c99b949)'
-      appType: 'webApp'
-      WebAppName: 'Online_Calendar'
-      VirtualApplication: 'Online Calendar'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
