@@ -4,5 +4,3 @@
 
 This is an application that allows you to create Events on different days and see others users events if you follow them.
 This Project is based on the [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). See the tutorial for to create an application similar to this one.
-
-#TEST
