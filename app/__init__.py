@@ -42,8 +42,5 @@ if not app.debug:
 
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
-    
-    if __name__ == "__main__":
-        app.run(host="0.0.0.0", port=80)
         
 from app import routes, models, errors
