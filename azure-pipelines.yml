@@ -12,12 +12,15 @@ jobs:
         python.version: '3.6'
 
   steps:
-  - checkout: self
-    clean: false
-    lfs: false
-    submodules: recursive
-    persistCredentials: true
-    
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Azure for Students(ddd4b0ec-1665-4cc8-adfd-29cb8c99b949)'
+      appType: 'webApp'
+      WebAppName: 'Online_Calendar'
+      VirtualApplication: 'Online Calendar'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
@@ -27,3 +30,4 @@ jobs:
     displayName: 'Install requirements'  
   - script: python tests.py
     displayName: 'Run Unittests'
+
