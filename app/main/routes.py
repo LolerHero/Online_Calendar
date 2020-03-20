@@ -29,7 +29,7 @@ def index():
         if language == 'UNKNOWN' or len(language) > 5:
             language = ''
         event = Event(body=form.event.data, author=current_user,
-                      language=language)
+                      language=language, date=form.event.date.data)
         db.session.add(event)
         db.session.commit()
         flash(_('Your event is now live!'))
