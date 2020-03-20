@@ -97,4 +97,4 @@ class Event(db.Model):
     language = db.Column(db.String(5))
 
     def __repr__(self):
-        return '<Event {}>'.format(self.body, self.date.strftime('%d.%m.%Y'))
+        return '<Event {}>'.format(self.body)
