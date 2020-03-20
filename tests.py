@@ -77,7 +77,7 @@ class UserModelCase(unittest.TestCase):
                    timestamp=now + timedelta(seconds=3))
         e4 = Event(body="evebt from david", author=u4,
                    timestamp=now + timedelta(seconds=2))
-        db.session.add_all([e1, e2, e3, E4])
+        db.session.add_all([e1, e2, e3, e4])
         db.session.commit()
 
         # setup the followers
