@@ -1,6 +1,7 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
@@ -12,4 +13,6 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['bloed82@hotmail.de', 'fabiennewiese@wtnet.de']
+    LANGUAGES = ['en', 'es', 'de']
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
     EVENTS_PER_PAGE = 25

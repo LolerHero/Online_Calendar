@@ -1,15 +1,30 @@
-<table class="table table-hover">
-    <tr>
-        <td width="70px">
-            <a href="{{ url_for('user', username=event.author.username) }}">
-                <img src="{{ event.author.avatar(36) }}">
-            </a>
-        </td>
-        <td>
-            <a href="{{ url_for('user', username=event.author.username) }}">
-                {{ event.author.username }}
-            </a>
-            created: {{ event.body }} at {{ event.date.strftime("%d.%m.%Y") }} {{ moment(event.timestamp).fromNow() }}
-        </td>
-    </tr>
-</table>
+    <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                <a href="{{ url_for('main.user', username=event.author.username) }}">
+                    <img src="{{ event.author.avatar(70) }}" />
+                </a>
+            </td>
+            <td>
+                {% set user_link %}
+                    <a href="{{ url_for('main.user', username=event.author.username) }}">
+                        {{ event.author.username }}
+                    </a>
+                {% endset %}
+                {{ _('%(username)s said %(when)s',
+                    username=user_link, when=moment(event.timestamp).fromNow()) }}
+                <br>
+                <span id="event{{ event.id }}">{{ event.body }}</span>
+                {% if event.language and event.language != g.locale %}
+                <br><br>
+                <span id="translation{{ event.id }}">
+                    <a href="javascript:translate(
+                                '#event{{ event.id }}',
+                                '#translation{{ event.id }}',
+                                '{{ event.language }}',
+                                '{{ g.locale }}');">{{ _('Translate') }}</a>
+                </span>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
