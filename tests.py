@@ -1,16 +1,28 @@
+#!/usr/bin/env python
 from datetime import datetime, timedelta
 import unittest
-from app import app, db
+from app import create_app, db
 from app.models import User, Event
+from config import Config
+
+
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    ELASTICSEARCH_URL = None
+
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
         db.create_all()
 
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+        self.app_context.pop()
 
     def test_password_hashing(self):
         u = User(username='susan')
@@ -47,7 +59,7 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(u1.followed.count(), 0)
         self.assertEqual(u2.followers.count(), 0)
 
-    def test_follow_events(self):
+    def test_follow_posts(self):
         # create four users
         u1 = User(username='john', email='john@example.com')
         u2 = User(username='susan', email='susan@example.com')
@@ -63,9 +75,9 @@ class UserModelCase(unittest.TestCase):
                   timestamp=now + timedelta(seconds=4))
         e3 = Event(body="event from mary", author=u3,
                   timestamp=now + timedelta(seconds=3))
-        e4 = Event(body="event from david", author=u4,
+        e4 = Event(body="evebt from david", author=u4,
                   timestamp=now + timedelta(seconds=2))
-        db.session.add_all([e1, e2, e3, e4])
+        db.session.add_all([e1, e2, e3, E4])
         db.session.commit()
 
         # setup the followers
@@ -75,7 +87,7 @@ class UserModelCase(unittest.TestCase):
         u3.follow(u4)  # mary follows david
         db.session.commit()
 
-        # check the followed events of each user
+        # check the followed posts of each user
         f1 = u1.followed_events().all()
         f2 = u2.followed_events().all()
         f3 = u3.followed_events().all()
@@ -84,6 +96,7 @@ class UserModelCase(unittest.TestCase):
         self.assertEqual(f2, [e2, e3])
         self.assertEqual(f3, [e3, e4])
         self.assertEqual(f4, [e4])
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
