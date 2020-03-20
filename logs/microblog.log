@@ -115,3 +115,5 @@ jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was loo
 2020-03-19 16:16:20,235 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:49]
 2020-03-19 16:22:20,782 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:49]
 2020-03-19 16:23:38,603 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:49]
+2020-03-20 09:22:31,442 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:74]
+2020-03-20 09:22:35,475 INFO: Microblog startup [in C:\Users\JHN\Desktop\Online_Calendar\app\__init__.py:74]
