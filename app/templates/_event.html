@@ -8,15 +8,15 @@
             <td>
                 {% set user_link %}
                     <span class="user_popup">
-                        <a href="{{ url_for('main.user', username=post.author.username) }}">
-                            {{ Event.author.username }}
+                        <a href="{{ url_for('main.user', username=event.author.username) }}">
+                            {{ event.author.username }}
                         </a>
                     </span>
                 {% endset %}
                 {{ _('%(username)s created %(when)s',
                     username=user_link, when=moment(event.timestamp).fromNow()) }}
                 <br>
-                <span id="event{{ event.id }}">{{ event.body }}</span>
+                <span id="event{{ event.id }}">{{ event.body }} on {{ event.date.strftime('%d.%m.%Y') }}</span>
                 {% if event.language and event.language != g.locale %}
                 <br><br>
                 <span id="translation{{ event.id }}">
