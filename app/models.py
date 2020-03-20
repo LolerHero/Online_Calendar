@@ -94,6 +94,7 @@ class Event(db.Model):
     date = db.Column(db.DateTime, index=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    language = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Event {}>'.format(self.body, self.day, self.month, self.year)
