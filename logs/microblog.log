@@ -1,4 +1,4 @@
-2020-03-20 09:29:50,244 ERROR: Exception on /favicon.ico [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
+2020-03-20 09:31:09,736 ERROR: Exception on /favicon.ico [GET] [in c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\jhn\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
