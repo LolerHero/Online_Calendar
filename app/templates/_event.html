@@ -7,11 +7,13 @@
             </td>
             <td>
                 {% set user_link %}
-                    <a href="{{ url_for('main.user', username=event.author.username) }}">
-                        {{ event.author.username }}
-                    </a>
+                    <span class="user_popup">
+                        <a href="{{ url_for('main.user', username=post.author.username) }}">
+                            {{ Event.author.username }}
+                        </a>
+                    </span>
                 {% endset %}
-                {{ _('%(username)s said %(when)s',
+                {{ _('%(username)s created %(when)s',
                     username=user_link, when=moment(event.timestamp).fromNow()) }}
                 <br>
                 <span id="event{{ event.id }}">{{ event.body }}</span>
