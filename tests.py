@@ -70,13 +70,13 @@ class UserModelCase(unittest.TestCase):
         # create four posts
         now = datetime.utcnow()
         e1 = Event(body="event from john", author=u1,
-                  timestamp=now + timedelta(seconds=1))
+                   timestamp=now + timedelta(seconds=1))
         e2 = Event(body="event from susan", author=u2,
-                  timestamp=now + timedelta(seconds=4))
+                   timestamp=now + timedelta(seconds=4))
         e3 = Event(body="event from mary", author=u3,
-                  timestamp=now + timedelta(seconds=3))
+                   timestamp=now + timedelta(seconds=3))
         e4 = Event(body="evebt from david", author=u4,
-                  timestamp=now + timedelta(seconds=2))
+                   timestamp=now + timedelta(seconds=2))
         db.session.add_all([e1, e2, e3, E4])
         db.session.commit()
 

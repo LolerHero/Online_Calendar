@@ -1,0 +1,209 @@
+# German translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-03-20 08:49+0100\n"
+"PO-Revision-Date: 2020-03-20 08:53+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+#: app/__init__.py:18
+msgid "Please log in to access this page."
+msgstr ""
+
+#: app/translate.py:10
+msgid "Error: the translation service is not configured."
+msgstr ""
+
+#: app/translate.py:18
+msgid "Error: the translation service failed."
+msgstr ""
+
+#: app/auth/email.py:8
+msgid "[Microblog] Reset Your Password"
+msgstr ""
+
+#: app/auth/forms.py:9 app/auth/forms.py:16 app/main/forms.py:10
+msgid "Username"
+msgstr ""
+
+#: app/auth/forms.py:10 app/auth/forms.py:18 app/auth/forms.py:41
+msgid "Password"
+msgstr ""
+
+#: app/auth/forms.py:11
+msgid "Remember Me"
+msgstr ""
+
+#: app/auth/forms.py:12 app/auth/routes.py:28 app/templates/auth/login.html:5
+msgid "Sign In"
+msgstr ""
+
+#: app/auth/forms.py:17 app/auth/forms.py:36
+msgid "Email"
+msgstr ""
+
+#: app/auth/forms.py:20 app/auth/forms.py:43
+msgid "Repeat Password"
+msgstr ""
+
+#: app/auth/forms.py:22 app/auth/routes.py:49
+#: app/templates/auth/register.html:6
+msgid "Register"
+msgstr ""
+
+#: app/auth/forms.py:27 app/main/forms.py:23
+msgid "Please use a different username."
+msgstr ""
+
+#: app/auth/forms.py:32
+msgid "Please use a different email address."
+msgstr ""
+
+#: app/auth/forms.py:37 app/auth/forms.py:45
+msgid "Request Password Reset"
+msgstr ""
+
+#: app/auth/routes.py:21
+msgid "Invalid username or password"
+msgstr ""
+
+#: app/auth/routes.py:47
+msgid "Congratulations, you are now a registered user!"
+msgstr ""
+
+#: app/auth/routes.py:63
+msgid "Check your email for the instructions to reset your password"
+msgstr ""
+
+#: app/auth/routes.py:66 app/templates/auth/reset_password_request.html:5
+msgid "Reset Password"
+msgstr ""
+
+#: app/auth/routes.py:80
+msgid "Your password has been reset."
+msgstr ""
+
+#: app/main/forms.py:11
+msgid "About me"
+msgstr ""
+
+#: app/main/forms.py:13
+msgid "Submit"
+msgstr ""
+
+#: app/templates/_event.html:14
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr ""
+
+#: app/templates/_event.html:25
+msgid "Translate"
+msgstr ""
+
+#: app/templates/base.html:4
+msgid "Welcome to  the Online Calendar"
+msgstr ""
+
+#: app/templates/base.html:21
+msgid "Home"
+msgstr ""
+
+#: app/templates/base.html:22
+msgid "Explore"
+msgstr ""
+
+#: app/templates/base.html:26
+msgid "Login"
+msgstr ""
+
+#: app/templates/base.html:28
+msgid "Profile"
+msgstr ""
+
+#: app/templates/base.html:29
+msgid "Logout"
+msgstr ""
+
+#: app/templates/base.html:66
+msgid "Error: Could not contact server."
+msgstr ""
+
+#: app/templates/edit_profile.html:6
+msgid "Edit Profile"
+msgstr ""
+
+#: app/templates/index.html:5
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr ""
+
+#: app/templates/index.html:17 app/templates/user.html:31
+msgid "Newer events"
+msgstr ""
+
+#: app/templates/index.html:22 app/templates/user.html:36
+msgid "Older events"
+msgstr ""
+
+#: app/templates/user.html:8
+msgid "User"
+msgstr ""
+
+#: app/templates/user.html:11
+msgid "Last seen on"
+msgstr ""
+
+#: app/templates/user.html:13
+#, python-format
+msgid "%(count)d followers"
+msgstr ""
+
+#: app/templates/user.html:13
+#, python-format
+msgid "%(count)d following"
+msgstr ""
+
+#: app/templates/user.html:15
+msgid "Edit your profile"
+msgstr ""
+
+#: app/templates/user.html:17
+msgid "Follow"
+msgstr ""
+
+#: app/templates/user.html:19
+msgid "Unfollow"
+msgstr ""
+
+#: app/templates/auth/login.html:12
+msgid "New User?"
+msgstr ""
+
+#: app/templates/auth/login.html:12
+msgid "Click to Register!"
+msgstr ""
+
+#: app/templates/auth/login.html:14
+msgid "Forgot Your Password?"
+msgstr ""
+
+#: app/templates/auth/login.html:15
+msgid "Click to Reset It"
+msgstr ""
+
+#: app/templates/auth/reset_password.html:5
+msgid "Reset Your Password"
+msgstr ""
+
